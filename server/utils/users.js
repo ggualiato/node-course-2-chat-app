@@ -1,9 +1,3 @@
-[{
-  id: 'asd',
-  name: 'Giovanni',
-  room: 'Room Test'
-}]
-
 class Users {
   constructor() {
     this.users = []
@@ -34,11 +28,8 @@ class Users {
     return namesArray;
   }
   isUniqueNameInRoom (newUser) {
-    var usersInRoom = this.users.filter((user) => {
-      if (user.room === newUser.room) {
-        return user.name.toLowerCase() === newUser.name.toLowerCase()
-      }
-    })
+    var userList = this.getUserList(newUser.room)
+    var usersInRoom = userList.filter((name) => name.toLowerCase() === newUser.name.toLowerCase())
 
     return usersInRoom.length === 0
   }
