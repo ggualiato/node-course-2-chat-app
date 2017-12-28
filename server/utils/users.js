@@ -33,6 +33,15 @@ class Users {
 
     return namesArray;
   }
+  isUniqueNameInRoom (newUser) {
+    var usersInRoom = this.users.filter((user) => {
+      if (user.room === newUser.room) {
+        return user.name.toLowerCase() === newUser.name.toLowerCase()
+      }
+    })
+
+    return usersInRoom.length === 0
+  }
 }
 
 module.exports = {Users}

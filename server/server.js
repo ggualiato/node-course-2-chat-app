@@ -25,6 +25,10 @@ io.on('connection', (socket) => {
 
     socket.join(params.room)
 
+    if (!users.isUniqueNameInRoom(params)) {
+      return callback('This name is already in use')
+    }
+
     users.removeUser(socket.id)
     users.addUser(socket.id, params.name, params.room)
 
