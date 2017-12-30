@@ -66,6 +66,12 @@ io.on('connection', (socket) => {
     }
   })
 
+  socket.on('createTypingMessageAlert', () => {
+    var user = users.getUser(socket.id)
+
+    socket.broadcast.to(user.room).emit('newTypingMessageAlert', user.name)
+  })
+
   socket.on('disconnect', (data) => {
     var user = users.removeUser(socket.id)
 

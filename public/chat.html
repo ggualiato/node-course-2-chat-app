@@ -3,12 +3,19 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animated-typing-icon.css">
     <title>Chat | ChatApp</title>
   </head>
   <body class="chat">
 
     <div class="chat__sidebar">
       <h3>People</h3>
+      <div class="typing-indicator">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
       <div id="users"></div>
     </div>
     <div class="chat__main">
@@ -16,7 +23,7 @@
 
       <div class="chat__footer">
         <form id="message-form">
-          <input type="text" name="message" placeholder="Message" autofocus autocomplete="off"/>
+          <input id="message-input" type="text" name="message" placeholder="Message" autofocus autocomplete="off"/>
           <button>Send</button>
         </form>
         <button id="send-location">Send location</button>

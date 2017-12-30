@@ -72,6 +72,23 @@ socket.on('newLocationMessage', function (message) {
   scrollToBottom()
 })
 
+socket.on('newTypingMessageAlert', function (user) {
+  var userLi = jQuery('#users ol li').toArray()
+
+  for (var i = 0; i < userLi.length; i++) {
+    if (userLi[i].innerText === user) {
+      var userTyping = userLi[i]
+      var spanJumpingDots = '<span class="jumping-dots"><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></span>'
+
+      userTyping.innerHTML = `${user} ${spanJumpingDots}`
+
+      setTimeout(function () {
+        userTyping.innerHTML = user
+      }, 3000)
+    }
+  }
+})
+
 jQuery('#message-form').on('submit', function (e) {
   e.preventDefault()
 
@@ -103,4 +120,10 @@ locationButton.on('click', function () {
   }, function () {
     alert('Unable to fetch location')
   })
+})
+
+$('#message-input').on('keypress', function () {
+  var params = jQuery.deparam(window.location.search)
+
+  socket.emit('createTypingMessageAlert')
 })
