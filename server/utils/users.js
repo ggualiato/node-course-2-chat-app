@@ -1,5 +1,5 @@
 class Users {
-  constructor() {
+  constructor () {
     this.users = []
   }
   addUser (id, name, room) {
@@ -19,13 +19,13 @@ class Users {
     return user
   }
   getUser (id) {
-    return this.users.filter((user) => user.id === id )[0]
+    return this.users.filter((user) => user.id === id)[0]
   }
   getUserList (room) {
     var users = this.users.filter((user) => user.room === room)
     var namesArray = users.map((user) => user.name)
 
-    return namesArray;
+    return namesArray
   }
   isUniqueNameInRoom (newUser) {
     var userList = this.getUserList(newUser.room)

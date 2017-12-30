@@ -1,4 +1,4 @@
-const expect = require('expect');
+const expect = require('expect')
 
 const {Users} = require('./users')
 
@@ -55,7 +55,6 @@ describe('Users', () => {
     var user = users.getUser(userId)
 
     expect(user.id).toBe(userId)
-
   })
 
   it('should not find user', () => {
