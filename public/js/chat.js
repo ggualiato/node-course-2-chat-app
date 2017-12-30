@@ -84,7 +84,7 @@ socket.on('newTypingMessageAlert', function (user) {
 
       setTimeout(function () {
         userTyping.innerHTML = user
-      }, 3000)
+      }, 1500)
     }
   }
 })
